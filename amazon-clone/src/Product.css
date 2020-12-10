@@ -11,6 +11,17 @@
     background-color: white;
     z-index: 1;
 }
+.product__price {
+    margin-top: 5px;
+}
+.product__info {
+    height: 100px;
+    /* width: 100%; */
+    margin-bottom: 15px;
+}
+.product__rating {
+    display: flex;
+}
 .product > img {
     max-height: 200px;
     width: 100%;
@@ -24,12 +35,5 @@
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
 }
-.product__price {
-    margin-top: 5px;
-}
-.product__info {
-    height: 100px;
-    text-align: left;
-    margin-bottom: 15px;
-}
+
 
