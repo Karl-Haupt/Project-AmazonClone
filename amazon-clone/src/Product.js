@@ -40,7 +40,7 @@ console.log("Basket contains", basket)
 
                 <img src={image} alt="" />
 
-                <button >Add to Basket</button>
+                <button onClick={addToBasket}>Add to Basket</button>
                 {/* onClick={addToBasket} */}
         </div>
     )
