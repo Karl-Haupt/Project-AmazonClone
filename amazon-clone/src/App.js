@@ -6,13 +6,17 @@ import Header from './Header.js';
 import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login.js";
+import Payment from './Payment.js';
 import { useStateValue } from "./StateProvider";
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 //Importing React Router 
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 //Importing Firebase
 import {auth} from './firebase'
 
+const promise = loadStripe('pk_test_51HybYgLiB3sPftj4f0JskQSimrrjwvvlMxGHscZRisfynal8YeW2P0kiiMGp1SmviHBHGFdsHmJBv47uV8vlivmG00k1h4zh8V');
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -48,25 +52,32 @@ function App() {
     <Router>
       <div className="App">
 
-            <Switch>
+          <Switch>
             <Route path="/Login">
                   {/*****Login Page****/}
                   <Login />
                 </Route>
-              <Route path="/checkout">
-                 {/*****Header****/}
-                  <Header />       
-                {/*****Checkout****/}
-                  <Checkout />
-                </Route>
+            <Route path="/checkout">
+                {/*****Header****/}
+                <Header />       
+              {/*****Checkout****/}
+                <Checkout />
+              </Route>
+              
+            <Route path="/Payment">
+                <Header /> 
+                <Elements stripe={promise}>
+                  <Payment />
+                </Elements>
+            </Route>
 
-                <Route path="/">
-                  {/*****Header****/}
-                    <Header />
-                  
-                  {/*****Home/Body****/}
-                    <Home />
-                </Route>
+            <Route path="/">
+              {/*****Header****/}
+                <Header />
+              
+              {/*****Home/Body****/}
+                <Home />
+            </Route>
           </Switch>
       </div>
     </Router>
