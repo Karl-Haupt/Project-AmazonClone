@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.css';
 import { useStateValue } from "./StateProvider";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './Reducer';
-import axios from 'axios';
+import axios from './axios';
 
 function Payment() {
     const [{basket, user}, dispatch] = useStateValue();
-
+    const history = useHistory();
+    
     //Stripe Libary
     const stripe = useStripe();
     const elements = useElements();
@@ -20,7 +21,7 @@ function Payment() {
     const [disabled, setDisabled] = useState(true);
 
     const [succeeded, setSucceeded] = useState(false);
-    const [processing, setProcessing] = useState(true);
+    const [processing, setProcessing] = useState("");
 
     const [clientSecret, setClientSecret] = useState(true);
 
