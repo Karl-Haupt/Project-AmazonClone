@@ -7,6 +7,7 @@ import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login.js";
 import Payment from './Payment.js';
+import Orders from './Orders.js';
 import { useStateValue } from "./StateProvider";
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
@@ -53,6 +54,10 @@ function App() {
       <div className="App">
 
           <Switch>
+          <Route path="/Orders">
+                  {/*****Order Page****/}
+                  <Orders />
+                </Route>
             <Route path="/Login">
                   {/*****Login Page****/}
                   <Login />
