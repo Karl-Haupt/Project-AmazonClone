@@ -53,10 +53,11 @@ function Payment() {
         }).then(({ paymentIntent}) => {
             //PaymentIntent is the payment confirmation
             
+            //Firebase Database
             db
                 .collection('users')
                 .doc(user?.uid)
-                .collection('Orders')
+                .collection('orders')
                 .doc(paymentIntent.id)
                 .set({
                     basket: basket,
