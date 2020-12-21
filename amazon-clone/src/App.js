@@ -54,14 +54,11 @@ function App() {
       <div className="App">
 
           <Switch>
-          <Route path="/Orders">
-                  {/*****Order Page****/}
-                  <Orders />
-                </Route>
             <Route path="/Login">
                   {/*****Login Page****/}
                   <Login />
-                </Route>
+            </Route>
+
             <Route path="/checkout">
                 {/*****Header****/}
                 <Header />       
@@ -74,6 +71,11 @@ function App() {
                 <Elements stripe={promise}>
                   <Payment />
                 </Elements>
+            </Route>
+
+            <Route path="/orders">
+              <Header/>
+              <Orders/>
             </Route>
 
             <Route path="/">
